@@ -1,0 +1,57 @@
+/* Form styling */
+.form-container {
+    width: 70%;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Form label styling */
+  .form-label {
+    font-weight: bold;
+  }
+  
+  /* Form control styling */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Add specification button styling */
+  .add-spec-btn {
+    margin-top: 10px;
+    background-color: #2a2e32;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    
+  
+  }
+  
+  /* Submit button styling */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2a2e32;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover ,.add-spec-btn:hover  {
+    background-color: #EB5805;
+  }
+  

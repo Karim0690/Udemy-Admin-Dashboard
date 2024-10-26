@@ -1,0 +1,77 @@
+<form (ngSubmit)="addProduct()"  class="modern-form" method="post">
+    
+    <div class="form-group">
+        <label class="form-label">Brand</label>
+        <input type="text" class="form-control" name="Brand" [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Brand">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Model Name</label>
+        <input type="text" class="form-control" name="ModelName"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.ModelName">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Model Arabic Name</label>
+        <input type="text" class="form-control" name="Ar_ModelName"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Ar_ModelName">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea type="text" class="form-control" name="Description"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Arabic Description</label>
+        <textarea type="text" class="form-control" name="Ar_Description"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Ar_Description">
+        </textarea>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Price</label>
+        <input type="text" class="form-control" name="Price" [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Price">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Discount Value</label>
+        <input type="text" class="form-control" name="DiscountValue"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.DiscountValue">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Warranty</label>
+        <input type="text" class="form-control" name="Warranty"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Warranty">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Quantity</label>
+        <input type="text" class="form-control" name="Quantity"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Quantity">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Images</label>
+        <input type="file" class="form-control" name="Images"
+         (change)="onImageSelected($event)" multiple
+         [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Images"
+             accept="image/*"  />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Categories</label>
+        <!-- <select class="form-control" name="CategoryName" [(ngModel)]="newProduct.CreateOrUpdateProductDtos.CategoryId"
+            (change)="onCategorySelect(newProduct.CreateOrUpdateProductDtos.CategoryId)">
+            <option value="0" selected>Select Category</option>
+            @for(category of categories ; track category.id)
+            {
+            <option [value]="category.id">{{category.name}}</option>
+
+            }
+        </select> -->
+    </div>
+    <div>
+        <h4 *ngIf="newProduct.CreateOrUpdateProductDtos.CategoryId">Specifications</h4>
+        <!-- <div class="form-group" *ngFor="let specific of categorySpecific.entities ">
+
+            <label class="form-label">{{specific.name}}</label>
+            <input type="text" class="form-control" name="Value" *ngIf="newProduct.CreateOrUpdateProductDtos.CategoryId"
+                (input)="addSpecificationValue(specific)" [(ngModel)]="newSpecificValue" />
+        </div> -->
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-submit">Create</button>
+</form>

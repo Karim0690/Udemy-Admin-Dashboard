@@ -1,0 +1,38 @@
+<form
+  (ngSubmit)="UpdateCategory()"
+  enctype="multipart/form-data"
+  class="form-container"
+>
+  <div class="form-group">
+    <label class="form-label">Subcategory Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="Name"
+      value="{{ subcategory.result.name }}"
+      [(ngModel)]="newSubcategory.name"
+    />
+  </div>
+  <hr />
+  <div class="form-group">
+    <label class="form-label">Select Category</label>
+    <select
+      class="form-control"
+      name="Category"
+      value="{{ subcategory.result.category }}"
+      [(ngModel)]="newSubcategory.category"
+    >
+      <option value="" disabled selected>Select a category</option>
+      <option *ngFor="let category of categories" [value]="category._id">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+  <!-- <div class="paginate">
+      <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+  
+    </div>    -->
+  <button type="submit" class="btn btn-primary submit-btn">
+    Update Category
+  </button>
+</form>

@@ -1,0 +1,34 @@
+<form
+  (ngSubmit)="addNewSubcategory()"
+  method="post"
+  enctype="multipart/form-data"
+  class="form-container"
+>
+  <div class="form-group">
+    <label class="form-label">Subcategory Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="Name"
+      [(ngModel)]="newSubcategory.name"
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Select Category</label>
+    <select
+      class="form-control"
+      name="Category"
+      [(ngModel)]="newSubcategory.category"
+    >
+      <option value="" disabled selected>Select a category</option>
+      <option *ngFor="let category of categories" [value]="category._id">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary submit-btn">
+    Create Subcategory
+  </button>
+</form>

@@ -1,0 +1,125 @@
+<!--wrapper-->
+<div class="wrapper">
+  <!--start page wrapper -->
+  <div class="page-wrapper">
+    <div class="page-content">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 m-3">
+        <div class="col">
+          <div
+            class="card radius-10 border-start border-0 border-4 border-info"
+          >
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div>
+                  <p class="mb-0 text-secondary">Total Orders</p>
+                  <h4 class="my-1 text-info">{{ TotalOrders }} Orders</h4>
+                  <!-- <p class="mb-0 font-13">+2.5% from last week</p> -->
+                </div>
+                <div
+                  class="widgets-icons-2 text-info ms-auto"
+                  style="width: 30px; height: 30px"
+                >
+                  <i class="bx bxs-cart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="card radius-10 border-start border-0 border-4 border-danger"
+          >
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div>
+                  <p class="mb-0 text-secondary">Total Reviews</p>
+                  <h4 class="my-1 text-danger">{{ TotalReviews }} Reviews</h4>
+                  <!-- <p class="mb-0 font-13">+5.4% from last week</p> -->
+                </div>
+                <div
+                  class="widgets-icons-2 text-danger ms-auto"
+                  style="font-size: 30px"
+                >
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="card radius-10 border-start border-0 border-4 border-success"
+          >
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div>
+                  <p class="mb-0 text-secondary">Total Courses</p>
+                  <h4 class="my-1 text-success">{{ TotalProducts }} Courses</h4>
+                  <!-- <p class="mb-0 font-13">-4.5% from last week</p> -->
+                </div>
+                <div class="widgets-icons-2 text-success ms-auto">
+                  <i class="fas fa-grip-horizontal"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="card radius-10 border-start border-0 border-4 border-warning"
+          >
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div>
+                  <p class="mb-0 text-secondary">Total Students</p>
+                  <h4 class="my-1 text-warning">
+                    {{ TotalCustomers }} Students
+                  </h4>
+                  <!-- <p class="mb-0 font-13">+8.4% from last week</p> -->
+                </div>
+                <div class="widgets-icons-2 text-warning ms-auto">
+                  <i class="bx bxs-group"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end row-->
+
+      <div class="row orders_Overview-Trending_Products">
+        <div class="col-12 col-lg-8 d-flex">
+          <div class="col-12 charts">
+            <div class="pie" [chart]="pieChart"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4 d-flex my-1 mb-3">
+          <div class="card radius-10 w-100">
+            <div class="card-header">
+              <div class="d-flex align-items-center">
+                <div>
+                  <h6 class="mb-0">Trending Courses</h6>
+                </div>
+              </div>
+            </div>
+            <!-- <ul
+              class="list-group list-group-flush"
+              *ngFor="let category of Categories; let i = index"
+            >
+              <li
+                class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top"
+              >
+                {{ category.name }}
+                <span class="badge bg-success rounded-pill">{{
+                  categoryProducts[i]
+                }}</span>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+      <!--end row-->
+    </div>
+  </div>
+</div>

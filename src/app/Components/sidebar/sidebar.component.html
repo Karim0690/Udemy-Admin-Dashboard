@@ -1,0 +1,350 @@
+<!-- smail-screen -->
+<div class="smail-screen">
+  <button
+    class="btn"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#collapseWidthExample"
+    aria-expanded="false"
+    aria-controls="collapseWidthExample"
+  >
+    <i class="fas fa-list m-2"></i>
+  </button>
+  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    <div
+      class="d-flex flex-column flex-shrink-0 sidebar-wrap m-2"
+      style="width: 180px"
+    >
+      <a href="/" class="text-decoration-none logo-wrap"></a>
+      <hr />
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <button class="btn align-items-center rounded" routerLink="/Home">
+            <i Class="fas fa-home m-2"></i>Home
+          </button>
+        </li>
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#category-collapse"
+            aria-expanded="false"
+          >
+            <i Class="fas fa-folder-open m-2"></i>Category
+          </button>
+          <div class="collapse" id="category-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Categories"
+                  class="link-light rounded text-decoration-none"
+                  >All Categories</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/AddCategory"
+                  class="link-light rounded text-decoration-none"
+                  >Add Category</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#Specification-collapse"
+            aria-expanded="false"
+          >
+            <i Class="fas fa-folder-open m-2"></i>Subcategory
+          </button>
+          <div class="collapse" id="Specification-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Specifications"
+                  class="link-light rounded text-decoration-none"
+                  >All Subcategory</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/AddSpecification"
+                  class="link-light rounded text-decoration-none"
+                  >Add Subcategory</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#product-collapse"
+            aria-expanded="false"
+          >
+            <i class="bx bx-grid-alt"></i>Product
+          </button>
+          <div class="collapse" id="product-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Products"
+                  class="link-light rounded text-decoration-none"
+                  >All Products</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/AddProduct"
+                  class="link-light rounded text-decoration-none"
+                  >Add Product</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn align-items-center rounded" routerLink="/Orders">
+            <i Class="fas fa-shopping-cart m-2"></i>Orders
+          </button>
+        </li>
+        <li class="mb-1">
+          <button class="btn align-items-center rounded" routerLink="/Reviews">
+            <i Class="fas fa-star m-2"></i>Reviews
+          </button>
+        </li>
+
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#user-collapse"
+            aria-expanded="false"
+          >
+            <i class="fas fa-user m-2"></i>User
+          </button>
+          <div class="collapse" id="user-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-users m-2"></i
+                ><a
+                  routerLink="/Users"
+                  class="link-light rounded text-decoration-none"
+                  >All User</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/CreateUserAccount"
+                  class="link-light rounded text-decoration-none"
+                  >CreateAccount</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <hr />
+  </div>
+</div>
+
+<!-- ---------- End smail-screen--------------- -->
+
+<!-- ----------- Larg-screen ------------------- -->
+<div class="larg-screen">
+  <div class="d-flex flex-column flex-shrink-0 sidebar-wrap m-2">
+    <div class="position-fixed side">
+      <img
+        id="logoLarge"
+        class="logo col-md-12"
+        src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
+        alt=""
+      />
+      <a href="/" class="text-decoration-none logo-wrap"></a>
+      <hr />
+      <ul class="list-unstyled">
+        <li class="mb-1">
+          <button class="btn align-items-center rounded" routerLink="/Home">
+            <i Class="fas fa-home m-2"></i>Home
+          </button>
+        </li>
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#category-collapse"
+            aria-expanded="false"
+          >
+            <i Class="fas fa-folder-open m-2"></i>Category
+          </button>
+          <div class="collapse" id="category-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Categories"
+                  class="link-light rounded text-decoration-none"
+                  >All Categories</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/AddCategory"
+                  class="link-light rounded text-decoration-none"
+                  >Add Category</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#Specification-collapse"
+            aria-expanded="false"
+          >
+            <i Class="fas fa-folder-open m-2"></i>Subcategory
+          </button>
+          <div class="collapse" id="Specification-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Subcategories"
+                  class="link-light rounded text-decoration-none"
+                  >All Subcategory</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/AddSubcategory"
+                  class="link-light rounded text-decoration-none"
+                  >Add Subcategory</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#Topics-collapse"
+            aria-expanded="false"
+          >
+            <i Class="fas fa-folder-open m-2"></i>Topics
+          </button>
+          <div class="collapse" id="Topics-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Topics"
+                  class="link-light rounded text-decoration-none"
+                  >Topics</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/AddTopic"
+                  class="link-light rounded text-decoration-none"
+                  >Add Topic</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#product-collapse"
+            aria-expanded="false"
+          >
+            <i class="fas fa-grip-horizontal m-2"></i>Courses
+          </button>
+          <div class="collapse" id="product-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Products"
+                  class="link-light rounded text-decoration-none"
+                  >All Courses</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-list m-2"></i
+                ><a
+                  routerLink="/Products"
+                  class="link-light rounded text-decoration-none"
+                  >Aprove Courses</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn align-items-center rounded" routerLink="/Orders">
+            <i Class="fas fa-shopping-cart m-2"></i>Orders
+          </button>
+        </li>
+        <li class="mb-1">
+          <button class="btn align-items-center rounded" routerLink="/Reviews">
+            <i Class="fas fa-star m-2"></i>Reviews
+          </button>
+        </li>
+
+        <li class="mb-1">
+          <button
+            class="btn btn-toggle align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#user-collapse"
+            aria-expanded="false"
+          >
+            <i class="fas fa-user m-2"></i>User
+          </button>
+          <div class="collapse" id="user-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li class="mx-4 my-2">
+                <i class="fas fa-users m-2"></i
+                ><a
+                  routerLink="/Users"
+                  class="link-light rounded text-decoration-none"
+                  >All User</a
+                >
+              </li>
+              <li class="mx-4 my-2">
+                <i class="fas fa-plus m-2"></i
+                ><a
+                  routerLink="/CreateUserAccount"
+                  class="link-light rounded text-decoration-none"
+                  >CreateAccount</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  </div>
+</div>
+
+<!-- ----------- End Larg-screen --------------- -->

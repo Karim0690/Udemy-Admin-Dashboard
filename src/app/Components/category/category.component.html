@@ -1,0 +1,64 @@
+<div class="container m-2">
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search By Category Name ex. Development"
+      name="search"
+      [(ngModel)]="textSearch"
+    />
+    <button class="search-button" (click)="searchOfCategory()">Search</button>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Slug</th>
+          <th class="text-center" colspan="1">Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tbody>
+        <ng-container
+          *ngIf="
+            (resultOfSearch ? resultOfSearch : categories).length > 0;
+            else noResults
+          "
+        >
+          <tr
+            *ngFor="
+              let category of resultOfSearch ? resultOfSearch : categories;
+              let i = index
+            "
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.slug }}</td>
+            <td class="actions">
+              <button
+                class="btn btn-success"
+                (click)="updateCatecory(category._id)"
+              >
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+
+              <button
+                class="btn btn-danger"
+                (click)="deleteCategory(category._id)"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-template #noResults>
+          <tr>
+            <td colspan="2" class="no-results">No categories found</td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>

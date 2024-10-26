@@ -1,0 +1,43 @@
+<div class="container m-2">
+  <div class="search-container">
+    <input type="text" class="search-input" name="search" [(ngModel)]="textSearch">
+    <button class="search-button" (click)="SearchByName()">Search</button>
+  </div>
+
+  <table class="table table-bordered my-5 tableContainer ">
+    <thead>
+      <tr>
+        <th>Images</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th class="text-center" colspan="3">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let product of(resultOfSearch? resultOfSearch:products.entities ) | paginate: { itemsPerPage:pageItem ,currentPage: pageNumber, totalItems: totalCount} ">
+          <td>
+            <img [src]="'data:image/jpeg;base64,' +product.images[0]" alt="Image" />
+          </td>
+        <td>{{product.brand}}</td>
+        <td>{{product.modelName}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.price}}</td>
+        <td><button class="btn btn-success" (click)="Details(product.id)">Details</button></td>
+        <td><button class="btn btn-success" (click)="updateProduct(product.id)">Edit</button></td>
+
+        <td>
+          <button class="btn btn-danger" mat-raised-button color="warn"
+            (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div class="paginate">
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+  </div>
+</div>

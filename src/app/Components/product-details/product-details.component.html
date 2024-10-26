@@ -1,0 +1,50 @@
+<div class="container-flude">
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead >
+          <tr>
+            <th >Description</th>
+            <th >Brand</th>
+            <th >Model</th>
+            <th >Price</th>
+            <th >Discount Value</th>
+            <th >Discounted Price</th>
+            <th >Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ productDetails.entity.productsDtos.description }} </td>
+            <td>{{ productDetails.entity.productsDtos.brand }} </td>
+            <td>{{ productDetails.entity.productsDtos.modelName }}</td>
+            <td>{{ productDetails.entity.productsDtos.price }}</td>
+            <td>{{ productDetails.entity.productsDtos.discountValue }}</td>
+            <td>{{ productDetails.entity.productsDtos.discountedPrice }}</td>
+            <td>{{ productDetails.entity.productsDtos.quantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-custom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Show Specification
+      </button>
+      <div class="collapse" id="collapseExample">
+
+          <table class="table table-bordered my-5 text-white">
+            <thead class="bg-dark text-white">
+              <tr>
+                <th >Name</th>
+                <th >Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productDetails.entity.specificationsNameValueDtos">
+                <td>{{ product.name }}</td>
+                <td>{{ product.value }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+

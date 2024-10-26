@@ -1,0 +1,14 @@
+<table class=" my-5 " >
+    <thead >
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let specific of CategorySpecific.entities" >
+            <td>{{specific.name }}</td>
+            <td><button class="btn btn-danger" (click)="deleteSpecification(id,specific.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

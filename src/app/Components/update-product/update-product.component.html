@@ -1,0 +1,91 @@
+<!-- <form (ngSubmit)="updateProduct()" class="modern-form" method="post">
+    
+    <div class="form-group">
+        <label class="form-label">Brand</label>
+        <input type="text" class="form-control" name="Brand" [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Brand"
+            value="{{productDetails.entity.productsDtos.brand}}">
+
+    </div>
+    <div class="form-group">
+        <label class="form-label">Model Name</label>
+        <input type="text" class="form-control" name="ModelName"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.ModelName"
+            value="{{productDetails.entity.productsDtos.modelName}}">
+
+    </div>
+    <div class="form-group">
+        <label class="form-label">Arabic Model Name</label>
+        <input type="text" class="form-control" name="Ar_ModelName"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Ar_ModelName"
+            value="{{productDetails.entity.productsDtos.ar_ModelName}}">
+
+    </div>
+    <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea type="text" class="form-control" name="Description"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Description"
+            value="{{productDetails.entity.productsDtos.description}}"> </textarea>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Arabic Description</label>
+        <textarea type="text" class="form-control" name="Ar_Description"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Ar_Description"
+            value="{{productDetails.entity.productsDtos.ar_Description}}"> </textarea>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Price</label>
+        <input type="text" class="form-control" name="Price" [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Price"
+        value="{{productDetails.entity.productsDtos.price}}">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Discount Value</label>
+        <input type="text" class="form-control" name="DiscountValue"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.DiscountValue"
+            value="{{productDetails.entity.productsDtos.discountValue}}">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Warranty</label>
+        <input type="text" class="form-control" name="Warranty"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Warranty"
+            value="{{productDetails.entity.productsDtos.warranty}}"
+            />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Quantity</label>
+        <input type="text" class="form-control" name="Quantity"
+            [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Quantity"
+            value="{{productDetails.entity.productsDtos.quantity}}">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Images</label>
+        <input type="file" class="form-control" name="Images"
+         (change)="onImageSelected($event)" multiple
+         [(ngModel)]="newProduct.CreateOrUpdateProductDtos.Images"
+             accept="image/*"  />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Category</label>
+        <select class="form-control" name="CategoryName" [(ngModel)]="newProduct.CreateOrUpdateProductDtos.CategoryId"
+            (change)="onCategorySelect(newProduct.CreateOrUpdateProductDtos.CategoryId)"
+            value="{{productDetails.entity.productsDtos.categoryId}}">
+            
+            <option value="0" selected>Select Category</option>
+            @for(category of categories.entities ; track category.id)
+
+            {
+            <option [value]="category.id">{{category.name}}</option>
+            }
+        </select>
+    </div>
+    <div>
+        <h4 >Specifications</h4>
+        <div class="form-group" *ngFor="let specific of categorySpecific.entities ">
+            <label class="form-label">{{specific.name}}</label>
+            <input type="text" class="form-control" name="Value" *ngIf="productDetails.entity.productsDtos.categoryId"
+            (input)="updateSpecificationValue(specific, $event)"
+            [value]="getMatchingValue(specific.name)"  />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-submit">Update</button>
+</form> -->

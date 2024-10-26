@@ -1,0 +1,24 @@
+<form
+  (ngSubmit)="UpdateCategory()"
+  enctype="multipart/form-data"
+  class="form-container"
+>
+  <div class="form-group">
+    <label class="form-label">Category Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="Name"
+      value="{{ category.result.name }}"
+      [(ngModel)]="newCategory.name"
+    />
+  </div>
+  <hr />
+  <!-- <div class="paginate">
+      <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+  
+    </div>    -->
+  <button type="submit" class="btn btn-primary submit-btn">
+    Update Category
+  </button>
+</form>

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="table-container">
+    <div class="search-container m-3">
+      <input
+        type="text"
+        class="search-input"
+        name="search"
+        [(ngModel)]="searchText"
+        placeholder="Search by name"
+        aria-label="Search input"
+      />
+      <button
+        class="search-button"
+        (click)="searchByName()"
+        aria-label="Search users"
+      >
+        Search
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let user of (searchResult ? searchResult : Users)
+              | paginate
+                : {
+                    itemsPerPage: pageItem,
+                    currentPage: pageNumber,
+                    totalItems: totalCount
+                  };
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <img
+              *ngIf="user.photo; else placeholder"
+              [src]="user.photo"
+              alt="{{ user.firstName }}'s profile picture"
+              class="user-image"
+            />
+            <ng-template #placeholder>
+              <img
+                src="../../../assets/NoProfile.jpeg"
+                alt="Placeholder image"
+                class="user-image"
+              />
+            </ng-template>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteAccount(user.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="paginate">
+      <pagination-controls
+        (pageChange)="onPageChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="errorMessages" class="error-message" style="color: red">
+  {{ errorMessages }}
+</div>

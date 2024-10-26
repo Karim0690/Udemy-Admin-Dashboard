@@ -1,0 +1,10 @@
+
+<form (ngSubmit)="updateOrderStatus()"  class="form-container modern-form ">
+  <div class="form-group">
+    <label class="form-label">Status</label>
+    <select class="form-control" name="StatusName" [(ngModel)]="selectedOrderStatus" >
+      <option *ngFor="let status of orderStatusOptions" [value]="status" >{{status}}</option>
+    </select>
+</div>
+  <button type="submit" class="btn btn-primary submit-btn">Update Status</button>
+</form>
