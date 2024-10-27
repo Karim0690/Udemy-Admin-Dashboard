@@ -61,8 +61,9 @@ export class HomeComponent implements OnInit {
     });
   }
   allReviews() {
-    this._reviewService.getAllReviews(10, 1).subscribe((response: any) => {
-      this.TotalReviews = response.count;
+    this._reviewService.getAllReviews().subscribe((response: any) => {
+      this.TotalReviews = response.data;
+      // this.TotalReviews = response.count;
       this.updateChart();
     });
   }
