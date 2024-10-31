@@ -15,7 +15,12 @@ import { ICategory } from '../../Models/icategory';
   styleUrl: './category.component.css',
 })
 export class CategoryComponent implements OnInit {
-  categories: ICategory = { _id: '', name: '', slug: '' };
+  categories: ICategory = {
+    _id: '',
+    name: '',
+    slug: '',
+    nameAr: '',
+  };
   textSearch: string = '';
   resultOfSearch: any | ICategory[];
   constructor(
@@ -30,6 +35,7 @@ export class CategoryComponent implements OnInit {
     this._categoriesService.getAllCategories().subscribe({
       next: (response: any) => {
         this.categories = response.result;
+        console.log(this.categories);
       },
       error: (error) => {
         alert('Please try again!');
@@ -65,7 +71,6 @@ export class CategoryComponent implements OnInit {
       .getCategoryByName(this.textSearch)
       .subscribe((res: any) => {
         console.log(res.result);
-
         this.resultOfSearch = res.result;
       });
   }

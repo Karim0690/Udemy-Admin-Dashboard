@@ -1,4 +1,5 @@
 export interface ICategoryUpdate {
-  _id:string
+  _id: string;
   name: string;
+  nameAr: string;
 }

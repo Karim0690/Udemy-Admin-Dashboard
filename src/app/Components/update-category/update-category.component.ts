@@ -18,6 +18,7 @@ export class UpdateCategoryComponent implements OnInit {
   newCategory: ICategoryUpdate = {
     _id: '',
     name: '',
+    nameAr: '',
   };
   pageItem: number = 24;
   pageNumber = 1;
@@ -25,12 +26,12 @@ export class UpdateCategoryComponent implements OnInit {
   CategoryId: string | null = '';
   category: ICategoryResult = {
     message: '',
-    result: { _id: '', name: '' },
+    result: { _id: '', name: '', nameAr: '' },
   };
   constructor(
     private _activeRoter: ActivatedRoute,
     private _router: Router,
-    private _categoryService: CatecoriesService,
+    private _categoryService: CatecoriesService
   ) {}
   ngOnInit() {
     this.CategoryId = this._activeRoter.snapshot.paramMap.get('id');
@@ -43,10 +44,11 @@ export class UpdateCategoryComponent implements OnInit {
     this._categoryService
       .getCategoryById(this.CategoryId)
       .subscribe((response) => {
-        console.log(response.result.name);
-
         this.category = response;
         this.newCategory.name = response.result.name;
+        this.newCategory.nameAr = response.result.nameAr;
+        console.log(response.result.name);
+        console.log(response.result.nameAr);
       });
   }
 

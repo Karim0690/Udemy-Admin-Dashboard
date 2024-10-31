@@ -53,6 +53,7 @@ export class AddProductComponent implements OnInit {
     _id: '',
     name: '',
     slug: '',
+    nameAr: '',
   };
   // categorySpecific: ISpecificCategory = {
   //   entities: [

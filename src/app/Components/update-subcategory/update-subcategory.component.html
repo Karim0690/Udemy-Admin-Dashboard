@@ -1,38 +1,28 @@
-<form
-  (ngSubmit)="UpdateCategory()"
-  enctype="multipart/form-data"
-  class="form-container"
->
-  <div class="form-group">
-    <label class="form-label">Subcategory Name</label>
-    <input
-      type="text"
-      class="form-control"
-      name="Name"
-      value="{{ subcategory.result.name }}"
-      [(ngModel)]="newSubcategory.name"
-    />
-  </div>
-  <hr />
-  <div class="form-group">
-    <label class="form-label">Select Category</label>
-    <select
-      class="form-control"
-      name="Category"
-      value="{{ subcategory.result.category }}"
-      [(ngModel)]="newSubcategory.category"
-    >
-      <option value="" disabled selected>Select a category</option>
+<form (ngSubmit)="UpdateCategory()" enctype="multipart/form-data" class="form-container">
+
+    <div class="form-group">
+        <label class="form-label">Subcategory Name</label>
+        <input type="text" class="form-control" name="Name" value="{{ subcategory.result.name }}" [(ngModel)]="newSubcategory.name" placeholder="Enter subcategory name in English" required />
+    </div>
+    <div class="form-group rtl">
+        <label class="form-label" for="nameAr">اسم الفئة الفرعية </label>
+        <input type="text" class="form-control" id="nameAr" name="NameAr" [(ngModel)]="newSubcategory.nameAr" value="{{ subcategory.result.nameAr }}" placeholder="أدخل  اسم الفئة الفرعية باللغة العربية" required />
+    </div>
+    <hr />
+    <div class="form-group">
+        <label class="form-label">Select Category</label>
+        <select class="form-control" name="Category" value="{{ subcategory.result.category }}" [(ngModel)]="newSubcategory.category">
+      <option value disabled selected>Select a category</option>
       <option *ngFor="let category of categories" [value]="category._id">
         {{ category.name }}
       </option>
     </select>
-  </div>
-  <!-- <div class="paginate">
+    </div>
+    <!-- <div class="paginate">
       <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
-  
+
     </div>    -->
-  <button type="submit" class="btn btn-primary submit-btn">
-    Update Category
+    <button type="submit" class="btn btn-primary submit-btn">
+    Update SubCategory
   </button>
 </form>

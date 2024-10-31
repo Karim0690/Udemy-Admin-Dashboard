@@ -57,7 +57,6 @@ export class ReviewComponent implements OnInit {
           next: (respone) => {
             console.log('Review deleted successfully:', respone);
             this.getAllReviews();
-
             // this.router.navigateByUrl('/Reviews');
             this.ngOnInit();
           },

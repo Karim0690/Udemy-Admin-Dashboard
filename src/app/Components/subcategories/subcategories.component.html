@@ -1,30 +1,26 @@
 <div class="container m-2">
-  <div class="search-container mt-4">
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search By Subcategory Name ex. Sales"
-      name="search"
-      [(ngModel)]="textSearch"
-    />
-    <button class="search-button" (click)="searchOfSubcategory()">
+    <div class="search-container mt-4">
+        <input type="text" class="search-input" placeholder="Search By Subcategory Name ex. Sales" name="search" [(ngModel)]="textSearch" />
+        <button class="search-button" (click)="searchOfSubcategory()">
       Search
     </button>
-  </div>
-  <table class="table table-bordered my-5 tableContainer">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Subcategory</th>
-        <th>Slug</th>
-        <th>Category</th>
-        <th class="text-center" colspan="1">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        *ngFor="
-          let subcategory of (resultOfSearch ? resultOfSearch : subcategoies)
+    </div>
+
+    <div class="table  my-5 tableContainer">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Subcategory Name (English)</th>
+                    <th>Subcategory Name (Arabic)</th>
+                    <th>Slug</th>
+                    <th>Category</th>
+                    <th class="text-center" colspan="1">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="
+          let subcategory of (resultOfSearch ? resultOfSearch : subcategories)
             | paginate
               : {
                   itemsPerPage: pageItem,
@@ -32,35 +28,28 @@
                   totalItems: totalCount
                 };
           let i = index
-        "
-      >
-        <td>{{ i + 1 }}</td>
-        <td>{{ subcategory.name }}</td>
-        <td>{{ subcategory.slug }}</td>
-        <td>{{ subcategory.category.name }}</td>
-        <td class="actions">
-          <button
-          class="btn btn-success"
-          (click)="updateSubcategory(subcategory._id)"
-        >
-          <i class="fa-solid fa-pen-to-square"></i>
-        </button>
+        ">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ subcategory.name }}</td>
+                    <td>{{ subcategory.nameAr }}</td>
+                    <!-- عرض الاسم بالعربي -->
+                    <td>{{ subcategory.slug }}</td>
+                    <td>{{ subcategory.category.name }}</td>
+                    <td class="actions">
+                        <button class="btn btn-success" (click)="updateSubcategory(subcategory._id)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
 
-          <button
-            class="btn btn-danger"
-            mat-raised-button
-            color="warn"
-            (click)="deleteSpecific(subcategory._id)"
-          >
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="paginate">
-    <pagination-controls
-      (pageChange)="onPageChange($event)"
-    ></pagination-controls>
-  </div>
+                        <button class="btn btn-danger" (click)="deleteSpecific(subcategory._id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="paginate">
+        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+    </div>
 </div>

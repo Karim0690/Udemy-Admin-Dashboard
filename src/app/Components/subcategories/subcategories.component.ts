@@ -16,9 +16,10 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
   styleUrl: './subcategories.component.css',
 })
 export class SubcategoriesComponent {
-  subcategoies: ISubcategories = {
+  subcategories: ISubcategories = {
     _id: '',
     name: '',
+    nameAr: '',
     slug: '',
     category: {
       _id: '',
@@ -42,19 +43,17 @@ export class SubcategoriesComponent {
     this.getAllSubcategories();
   }
   getAllSubcategories() {
-    this._subcategoriesService
-      .getAllSubcategories()
-      .subscribe({
-        next: (response: any) => {
-          console.log(response.result);
+    this._subcategoriesService.getAllSubcategories().subscribe({
+      next: (response: any) => {
+        console.log(response.result);
 
-          this.subcategoies = response.result;
-          this.totalCount = response.count;
-        },
-        error: (error) => {
-          console.log(error);
-        },
-      });
+        this.subcategories = response.result;
+        this.totalCount = response.count;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
   deleteSpecific(id: string) {
@@ -79,7 +78,7 @@ export class SubcategoriesComponent {
 
   updateSubcategory(id: string) {
     console.log(id);
-    
+
     this.router.navigateByUrl(`/UpdateSubcategory/${id}`);
   }
 

@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
     _id: '',
     name: '',
     slug: '',
+    nameAr: '',
   };
   categoryProducts: number[] = []; // Initialize categoryProducts as an empty object
   categoyId: number = 0;

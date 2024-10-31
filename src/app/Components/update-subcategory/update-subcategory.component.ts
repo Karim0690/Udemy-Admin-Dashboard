@@ -21,14 +21,15 @@ export class UpdateSubcategoryComponent implements OnInit {
     _id: '',
     name: '',
     category: '',
+    nameAr: '',
   };
   pageItem: number = 24;
   pageNumber = 1;
   totalCount: number = 0;
-  SubcategoryId: string  = '';
+  SubcategoryId: string = '';
   subcategory: ISubcategoryResult = {
     message: '',
-    result: { _id: '', name: '', category: '' },
+    result: { _id: '', name: '', category: '', nameAr: '' },
   };
   categories: ICategory[] = []; // Ensure this is an array
 
@@ -55,6 +56,7 @@ export class UpdateSubcategoryComponent implements OnInit {
         // console.log(response.result);
         this.newSubcategory = response.result;
         this.newSubcategory.name = response.result.name;
+        this.newSubcategory.nameAr = response.result.nameAr;
       });
   }
 
@@ -73,6 +75,7 @@ export class UpdateSubcategoryComponent implements OnInit {
   UpdateCategory() {
     const updatedSubcategory = {
       name: this.newSubcategory.name,
+      nameAr: this.newSubcategory.nameAr,
       category: this.newSubcategory.category,
     };
     this._subcategoriesService

@@ -49,6 +49,7 @@ export class CatecoriesService {
       `${this.apiUrl}category/${newCategory._id}`,
       {
         name: newCategory.name,
+        nameAr: newCategory.nameAr,
       }
     );
   }

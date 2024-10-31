@@ -1,6 +1,7 @@
 export interface ISubcategories {
   _id: string;
   name: string;
+  nameAr: string;
   slug: string;
   category: {
     _id: string;

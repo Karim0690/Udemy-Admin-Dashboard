@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./add-subcategory.component.css'],
 })
 export class AddSubcategoryComponent implements OnInit {
-  newSubcategory: ISubcategoryCreate = { name: '', category: '' };
+  newSubcategory: ISubcategoryCreate = { name: '', category: '', nameAr: '' };
   categories: ICategory[] = []; // Ensure this is an array
 
   constructor(
@@ -45,7 +45,7 @@ export class AddSubcategoryComponent implements OnInit {
     this._subcategoriesService.addSubcategory(this.newSubcategory).subscribe({
       next: (response) => {
         // Clear the form or reset as necessary
-        this.newSubcategory = { name: '', category: '' };
+        this.newSubcategory = { name: '', category: '', nameAr: '' };
         this.router.navigateByUrl('/Subcategories');
       },
       error: (err) => {
