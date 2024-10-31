@@ -6,16 +6,18 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { IReview } from '../../Models/ireview';
+import { SpinnerComponent } from '../spinner/spinner.component';
 // import { IReview } from '../../Models/ireviw';
 
 @Component({
   selector: 'app-review',
   standalone: true,
-  imports: [CommonModule, NgxPaginationModule],
+  imports: [CommonModule, NgxPaginationModule, SpinnerComponent],
   templateUrl: './review.component.html',
   styleUrl: './review.component.css',
 })
 export class ReviewComponent implements OnInit {
+  isLoading: boolean = true;
   reviews: IReview[] = [];
   errorMessages: string[] = [];
   pageItem: number = 8;
@@ -36,10 +38,12 @@ export class ReviewComponent implements OnInit {
       next: (response: any) => {
         this.reviews = response.data;
         console.log('Reviews :', response);
+        this.isLoading = false;
         // this.totalCount = response.count;
       },
       error: (error) => {
         console.error('Error fetching reviews:', error);
+        this.isLoading = false;
         this.errorMessages.push(`Error fetching reviews: ${error}`);
       },
     });

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TopicsService } from '../../Services/topics.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-topics',
@@ -17,11 +18,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RouterLink,
     RouterLinkActive,
     NgxPaginationModule,
+    SpinnerComponent,
   ],
   templateUrl: './topics.component.html',
   styleUrl: './topics.component.css',
 })
 export class TopicsComponent {
+  isLoading: boolean = true;
   topics: ITopics = { _id: '', name: '', slug: '', subcategoy: '', nameAr: '' };
   textSearch: string = '';
   resultOfSearch: any | ITopics[];
@@ -38,12 +41,29 @@ export class TopicsComponent {
     this.getAllTopics();
   }
   getAllTopics() {
+    this.isLoading = true;
     this._topicsService.getAllTopics().subscribe({
       next: (response: any) => {
         this.topics = response.result;
+        this.isLoading = false;
       },
       error: (error) => {
         alert('Please try again!');
+        this.isLoading = false;
+      },
+    });
+  }
+
+  searchOfTopic() {
+    this.isLoading = true;
+    this._topicsService.getTopicByName(this.textSearch).subscribe({
+      next: (res: any) => {
+        this.resultOfSearch = res.result;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        alert('Please try again!');
+        this.isLoading = false;
       },
     });
   }
@@ -69,14 +89,6 @@ export class TopicsComponent {
         });
       }
     });
-  }
-
-  searchOfTopic() {
-    this._topicsService
-      .getTopicByName(this.textSearch)
-      .subscribe((res: any) => {
-        this.resultOfSearch = res.result;
-      });
   }
 
   onPageChange(pageNumber: number) {

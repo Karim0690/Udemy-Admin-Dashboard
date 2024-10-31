@@ -6,15 +6,24 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { ICategory } from '../../Models/icategory';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    RouterLinkActive,
+    SpinnerComponent,
+  ],
   templateUrl: './category.component.html',
-  styleUrl: './category.component.css',
+  styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent implements OnInit {
+  isLoading: boolean = true;
+
   categories: ICategory = {
     _id: '',
     name: '',
@@ -32,13 +41,15 @@ export class CategoryComponent implements OnInit {
     this.getAllCategories();
   }
   getAllCategories() {
+    this.isLoading = true;
     this._categoriesService.getAllCategories().subscribe({
       next: (response: any) => {
         this.categories = response.result;
-        console.log(this.categories);
+        this.isLoading = false;
       },
       error: (error) => {
         alert('Please try again!');
+        this.isLoading = false;
       },
     });
   }
@@ -67,12 +78,17 @@ export class CategoryComponent implements OnInit {
     this.router.navigateByUrl(`/UpdateCategory/${id}`);
   }
   searchOfCategory() {
-    this._categoriesService
-      .getCategoryByName(this.textSearch)
-      .subscribe((res: any) => {
-        console.log(res.result);
+    this.isLoading = true;
+    this._categoriesService.getCategoryByName(this.textSearch).subscribe({
+      next: (res: any) => {
         this.resultOfSearch = res.result;
-      });
+        this.isLoading = false;
+      },
+      error: (error) => {
+        alert('Please try again!');
+        this.isLoading = false;
+      },
+    });
   }
   addSpecification(id: number) {
     this.router.navigateByUrl(`/AddSpecificationCategory/${id}`);

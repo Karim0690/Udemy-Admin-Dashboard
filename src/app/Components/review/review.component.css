@@ -41,10 +41,15 @@ td {
 .actions {
   display: flex;
   justify-content: space-around;
+  gap: 20px;
 }
 
 .paginate {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+}
+
+.paginate ::ng-deep .ngx-pagination .current {
+  background: #a435f0;
 }
