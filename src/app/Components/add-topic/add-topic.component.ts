@@ -12,10 +12,10 @@ import { TopicsService } from '../../Services/topics.service';
   standalone: true,
   imports: [FormsModule, CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './add-topic.component.html',
-  styleUrl: './add-topic.component.css'
+  styleUrl: './add-topic.component.css',
 })
 export class AddTopicComponent implements OnInit {
-  newTopic: ITopicCreate = { name: '', subcategory: '' };
+  newTopic: ITopicCreate = { name: '', subcategory: '', nameAr: '' };
   subcategories: ISubcategories[] = [];
   constructor(
     private _subcategoriesService: SubcategoiesService,
@@ -38,15 +38,16 @@ export class AddTopicComponent implements OnInit {
     });
   }
 
-  addNewTopic(){
+  addNewTopic() {
+    console.log('Data being sent:', this.newTopic);
     this._TopicsService.createTopic(this.newTopic).subscribe({
       next: (response) => {
-        this.newTopic = { name: '', subcategory: '' };
+        this.newTopic = { name: '', subcategory: '', nameAr: '' };
         this.router.navigateByUrl('/Topics');
       },
       error: (error) => {
         console.error(error);
-      }
+      },
     });
   }
 }

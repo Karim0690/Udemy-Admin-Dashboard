@@ -1,42 +1,48 @@
-<div class="table-container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Comment</th>
-                <th>User Name</th>
-                <th>Course Title</th>
-                <th>Rating</th>
-                <th>Created Date</th>
-                <th class="text-center" colspan="1">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <ng-container *ngIf="reviews.length > 0; else noResults">
-                <tr *ngFor="let review of reviews | paginate: { itemsPerPage: pageItem, currentPage: pageNumber, totalItems: totalCount }
-          let i = index">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ review.comment }}</td>
-                    <td>{{ review.user.name }}</td>
-                    <td>{{ review.course.title }}</td>
-                    <td>{{ review.rating }}</td>
-                    <td>{{ review.createdAt | date }}</td>
-                    <td class="actions">
-                        <button class="btn btn-danger" (click)="deleteReview(review._id)">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-                    </td>
-                </tr>
-            </ng-container>
-            <ng-template #noResults>
+<div class="container">
+    <div class="search-container">
+        <!-- <input type="text" class="search-input" placeholder="Search By Category Name ex. Development" name="search" [(ngModel)]="textSearch" /> -->
+        <!-- <button class="search-button" (click)="searchOfReview()">Search</button> -->
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td colspan="6" class="no-results">No reviews found</td>
+                    <th>#</th>
+                    <th>Comment</th>
+                    <th>User Name</th>
+                    <th>Course Title</th>
+                    <th>Rating</th>
+                    <th>Created Date</th>
+                    <th class="text-center" colspan="1">Actions</th>
                 </tr>
-            </ng-template>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="reviews.length > 0; else noResults">
+                    <tr *ngFor="let review of reviews | paginate: { itemsPerPage: pageItem, currentPage: pageNumber, totalItems: totalCount }
+          let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ review.comment }}</td>
+                        <td>{{ review.user.name }}</td>
+                        <td>{{ review.course.title }}</td>
+                        <td>{{ review.rating }}</td>
+                        <td>{{ review.createdAt | date }}</td>
+                        <td class="actions">
+                            <button class="btn btn-danger" (click)="deleteReview(review._id)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-template #noResults>
+                    <tr>
+                        <td colspan="6" class="no-results">No reviews found</td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </table>
 
-    <div class="paginate text-center">
-        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+        <div class="paginate text-center">
+            <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+        </div>
     </div>
 </div>

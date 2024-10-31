@@ -1,36 +1,28 @@
-<div class="container m-2">
-  <div class="search-container">
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search By Slug Name ex. JavaScript"
-      name="search"
-      [(ngModel)]="textSearch"
-    />
+<div class="container ">
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search By Topic Name ex. JavaScript" name="search" [(ngModel)]="textSearch" />
 
-    <button class="search-button" (click)="searchOfTopic()">Search</button>
-  </div>
-  <div class="table-container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Slug</th>
-          <th>Subcategory</th>
-          <th class="text-center">Action</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-      <tbody>
-        <ng-container
-          *ngIf="
+        <button class="search-button" (click)="searchOfTopic()">Search</button>
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th> Name (English)</th>
+                    <th> Name (Arabic)</th>
+                    <th>Slug</th>
+                    <th>Subcategory</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tbody>
+                <ng-container *ngIf="
             (resultOfSearch ? resultOfSearch : topics).length > 0;
             else noResults
-          "
-        >
-          <tr
-            *ngFor="
+          ">
+                    <tr *ngFor="
               let topic of (resultOfSearch ? resultOfSearch : topics)
                 | paginate
                   : {
@@ -39,34 +31,32 @@
                       totalItems: totalCount
                     };
               let i = index
-            "
-          >
-            <td>{{ i + 1 }}</td>
-            <td>{{ topic.name }}</td>
-            <td>{{ topic.slug }}</td>
-            <td>{{ topic.subcategory.name }}</td>
-            <td class="actions">
-              <button class="btn btn-success" (click)="updateTopic(topic._id)">
+            ">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ topic.name }}</td>
+                        <td>{{ topic.nameAr }}</td>
+                        <td>{{ topic.slug }}</td>
+                        <td>{{ topic.subcategory.name }}</td>
+                        <td class="actions">
+                            <button class="btn btn-success" (click)="updateTopic(topic._id)">
                 <i class="fa-solid fa-pen-to-square"></i>
               </button>
 
-              <button class="btn btn-danger" (click)="deleteTopic(topic._id)">
+                            <button class="btn btn-danger" (click)="deleteTopic(topic._id)">
                 <i class="fa-solid fa-trash"></i>
               </button>
-            </td>
-          </tr>
-        </ng-container>
-        <ng-template #noResults>
-          <tr>
-            <td colspan="4" class="no-results">No Topics found</td>
-          </tr>
-        </ng-template>
-      </tbody>
-    </table>
-  </div>
-  <div class="paginate">
-    <pagination-controls
-      (pageChange)="onPageChange($event)"
-    ></pagination-controls>
-  </div>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-template #noResults>
+                    <tr>
+                        <td colspan="4" class="no-results">No Topics found</td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </table>
+    </div>
+    <div class="paginate">
+        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+    </div>
 </div>

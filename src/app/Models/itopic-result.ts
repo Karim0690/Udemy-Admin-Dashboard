@@ -3,6 +3,7 @@ export interface ITopicResult {
   result: {
     _id: string;
     name: string;
+    nameAr: string;
     slug: string;
     subcategory: string;
   };

@@ -1,4 +1,4 @@
-<div class="container m-2">
+<div class="container ">
     <div class="search-container mt-4">
         <input type="text" class="search-input" placeholder="Search By Subcategory Name ex. Sales" name="search" [(ngModel)]="textSearch" />
         <button class="search-button" (click)="searchOfSubcategory()">
@@ -32,7 +32,6 @@
                     <td>{{ i + 1 }}</td>
                     <td>{{ subcategory.name }}</td>
                     <td>{{ subcategory.nameAr }}</td>
-                    <!-- عرض الاسم بالعربي -->
                     <td>{{ subcategory.slug }}</td>
                     <td>{{ subcategory.category.name }}</td>
                     <td class="actions">

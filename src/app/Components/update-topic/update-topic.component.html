@@ -1,38 +1,23 @@
-<form
-method="post"
-enctype="multipart/form-data"
-class="form-container"
-(ngSubmit)="UpdateTopic()"
->
-  <div class="form-group">
-    <label class="form-label">Topic Name</label>
-    <input
-      type="text"
-      class="form-control"
-      name="Name"
-      [(ngModel)]="newTopic.name"
-      />
-  </div>
-  <div class="form-group">
-    <label class="form-label">Select Subcategory</label>
-    <select
-      class="form-control"
-      name="Category"
-      [(ngModel)]="newTopic.subcategory"
-      >
-      
-      <option value="" disabled selected >Select a subcategory</option>
+<form method="post" enctype="multipart/form-data" class="form-container" (ngSubmit)="UpdateTopic()">
+    <div class="form-group">
+        <label class="form-label">Topic Name</label>
+        <input type="text" class="form-control" name="Name" value="{{ topic.result.name }}" [(ngModel)]="newTopic.name" placeholder="Enter topic name in English" required />
+    </div>
+    <div class="form-group rtl">
+        <label class="form-label" for="nameAr">اسم الموضوع</label>
+        <input type="text" class="form-control" id="nameAr" name="NameAr" [(ngModel)]="newTopic.nameAr" value="{{ topic.result.nameAr }}" placeholder="أدخل  اسم الموضوع باللغة العربية" required />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Select Subcategory</label>
+        <select class="form-control" name="Category" [(ngModel)]="newTopic.subcategory">
+
+      <option value disabled selected>Select a subcategory</option>
       <option
         *ngFor="let subcategory of subcategories"
-        [value]="subcategory._id"
-      >
+        [value]="subcategory._id">
         {{ subcategory.name }}
       </option>
     </select>
-  </div>
-
-  <!-- <div class="paginate">
-    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
-  </div> -->
-  <button type="submit" class="btn btn-primary submit-btn">Update Topic</button>
+    </div>
+    <button type="submit" class="btn btn-primary submit-btn">Update Topic</button>
 </form>

@@ -22,7 +22,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   styleUrl: './topics.component.css',
 })
 export class TopicsComponent {
-  topics: ITopics = { _id: '', name: '', slug: '',subcategoy:'' };
+  topics: ITopics = { _id: '', name: '', slug: '', subcategoy: '', nameAr: '' };
   textSearch: string = '';
   resultOfSearch: any | ITopics[];
   pageItem: number = 10;
