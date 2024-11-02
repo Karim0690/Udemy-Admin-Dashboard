@@ -48,22 +48,22 @@ img{
 }
 
 .search-input {
-  width: 50%; /* Adjust width as needed */
+  width: 60%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  margin-right: 10px; /* Add some space between input and button */
 }
+
 
 .search-button {
   padding: 10px 20px;
-  background-color: #EB5805;
+  background-color: #a435f0;
   border: none;
-  border-radius: 5px;
   color: #fff;
   cursor: pointer;
   font-size: 16px;
+  margin-left: 1%;
 }
 
 /* Style similar to .m-5 class */
@@ -95,4 +95,18 @@ img{
   align-items: center;
   justify-content: center;
   font-size: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-controls .btn {
+  margin: 0 5px;
 }
