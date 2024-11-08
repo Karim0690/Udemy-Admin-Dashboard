@@ -33,7 +33,7 @@ export class SubcategoiesService {
   }
   deleteSubcategory(id: string): Observable<ISubcategories> {
     return this._httpClient.delete<ISubcategories>(
-      `${this.apiUrl}subcategory?id=${id}`
+      `${this.apiUrl}subcategory/${id}`
     );
   }
 
@@ -44,7 +44,7 @@ export class SubcategoiesService {
   }
   updateSubcategory(
     id: string,
-    updatedSubcategory: { name: string; category: string }
+    updatedSubcategory: { name: string; category: string; nameAr: string }
   ): Observable<ISubcategoryUpdate> {
     console.log(updatedSubcategory);
     return this._httpClient.patch<ISubcategoryUpdate>(

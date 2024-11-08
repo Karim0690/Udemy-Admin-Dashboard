@@ -86,6 +86,7 @@ export class UpdateProductComponent implements OnInit {
     _id: '',
     name: '',
     slug: '',
+    nameAr: '',
   };
   categorySpecific: ISpecificCategory = {
     entities: [
@@ -134,28 +135,28 @@ export class UpdateProductComponent implements OnInit {
         product.Ar_Description = prdResult.ar_Description;
         product.Ar_ModelName = prdResult.ar_ModelName;
         product.Images = result.entity.productsDtos.images;
-      //   this._categoryservice
-      //     .getCategorySpecific(this.CategoryId)
-      //     .subscribe((response: any) => {
-      //       this.categorySpecific = response;
-      //       result.entity.specificationsNameValueDtos.forEach((spec) => {
-      //         const newSpecification = {
-      //           Id: 0,
-      //           ProductId: prdResult.id,
-      //           CategoryId: prdResult.categoryId,
-      //           SpecificationId: null,
-      //           Value: spec.value,
-      //         };
+        //   this._categoryservice
+        //     .getCategorySpecific(this.CategoryId)
+        //     .subscribe((response: any) => {
+        //       this.categorySpecific = response;
+        //       result.entity.specificationsNameValueDtos.forEach((spec) => {
+        //         const newSpecification = {
+        //           Id: 0,
+        //           ProductId: prdResult.id,
+        //           CategoryId: prdResult.categoryId,
+        //           SpecificationId: null,
+        //           Value: spec.value,
+        //         };
 
-      //         const matchingEntity = response.entities.find(
-      //           (entity: { name: string; id: any }) => entity.name === spec.name
-      //         );
-      //         if (matchingEntity) {
-      //           newSpecification.SpecificationId = matchingEntity.id;
-      //         }
-      //         prdSpesific.push(newSpecification);
-      //       });
-      //     });
+        //         const matchingEntity = response.entities.find(
+        //           (entity: { name: string; id: any }) => entity.name === spec.name
+        //         );
+        //         if (matchingEntity) {
+        //           newSpecification.SpecificationId = matchingEntity.id;
+        //         }
+        //         prdSpesific.push(newSpecification);
+        //       });
+        //     });
       });
   }
   updateProduct() {

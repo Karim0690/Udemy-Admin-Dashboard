@@ -2,25 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment';
-import { IReviw } from '../models/ireviw';
+import { IReview } from '../Models/ireview';
+// import { IReview } from '../Models/ireviw'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ReviewService {
-
   apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-
-  getAllReviews(pageItem:number , pageNumber:number): Observable<IReviw[]> {
-    return this.http.get<IReviw[]>(`${this.apiUrl}Review?pageItem=${pageItem}&pageNumber=${pageNumber}`);
+  getAllReviews(): Observable<IReview[]> {
+    return this.http.get<IReview[]>(`${this.apiUrl}reviews`);
   }
 
-
-deleteReview(reviewId: number): Observable<any> {
-  return this.http.delete(`${this.apiUrl}Review?reviewId=${reviewId}`);
-}
-
+  deleteReview(reviewId: string): Observable<any> {
+    return this.http.delete<IReview[]>(`${this.apiUrl}reviews/${reviewId}`);
+  }
 }

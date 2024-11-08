@@ -1,0 +1,206 @@
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #a435f0 95%, #0000) 50% 1px/12px
+      12px no-repeat,
+    radial-gradient(farthest-side, #0000 calc(100% - 14px), #ccc 0);
+  animation: l9 2s infinite linear;
+}
+
+@keyframes l9 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+/* 2 */
+
+/* .loader { */
+
+/* height: 30px; */
+
+/* aspect-ratio: 0.866; */
+
+/* display: grid; */
+
+/* background: conic-gradient( */
+
+/* from -121deg at right, */
+
+/* #0000, */
+
+/* #bf1e62 1deg 60deg, */
+
+/* #0000 61deg */
+
+/* ); */
+
+/* animation: l12 2s infinite linear; */
+
+/* transform-origin: 33% 50%; */
+
+/* } */
+
+/* .loader:before, */
+
+/* .loader:after { */
+
+/* content: ""; */
+
+/* grid-area: 1/1; */
+
+/* background: conic-gradient( */
+
+/* from -121deg at right, */
+
+/* #0000, */
+
+/* #ffa588 1deg 60deg, */
+
+/* #0000 61deg */
+
+/* ); */
+
+/* transform-origin: inherit; */
+
+/* animation: inherit; */
+
+/* } */
+
+/* .loader:after { */
+
+/* background: conic-gradient( */
+
+/* from -121deg at right, */
+
+/* #0000, */
+
+/* #a435f0 1deg 60deg, */
+
+/* #0000 61deg */
+
+/* ); */
+
+/* animation-duration: 3s; */
+
+/* } */
+
+/* @keyframes l12 { */
+
+/* 100% { */
+
+/* transform: rotate(1turn); */
+
+/* } */
+
+/* } */
+
+/* 3 */
+
+/* .loader { */
+
+/* width: 35px; */
+
+/* aspect-ratio: 1; */
+
+/* --c: no-repeat linear-gradient(#a435f0 0 0); */
+
+/* background: var(--c) 0 0, var(--c) 100% 0, var(--c) 100% 100%, var(--c) 0 100%; */
+
+/* animation: l2-1 2s infinite, l2-2 2s infinite; */
+
+/* } */
+
+/* @keyframes l2-1 { */
+
+/* 0% { */
+
+/* background-size: 0 4px, 4px 0, 0 4px, 4px 0; */
+
+/* } */
+
+/* 12.5% { */
+
+/* background-size: 100% 4px, 4px 0, 0 4px, 4px 0; */
+
+/* } */
+
+/* 25% { */
+
+/* background-size: 100% 4px, 4px 100%, 0 4px, 4px 0; */
+
+/* } */
+
+/* 37.5% { */
+
+/* background-size: 100% 4px, 4px 100%, 100% 4px, 4px 0; */
+
+/* } */
+
+/* 45%, */
+
+/* 55% { */
+
+/* background-size: 100% 4px, 4px 100%, 100% 4px, 4px 100%; */
+
+/* } */
+
+/* 62.5% { */
+
+/* background-size: 0 4px, 4px 100%, 100% 4px, 4px 100%; */
+
+/* } */
+
+/* 75% { */
+
+/* background-size: 0 4px, 4px 0, 100% 4px, 4px 100%; */
+
+/* } */
+
+/* 87.5% { */
+
+/* background-size: 0 4px, 4px 0, 0 4px, 4px 100%; */
+
+/* } */
+
+/* 100% { */
+
+/* background-size: 0 4px, 4px 0, 0 4px, 4px 0; */
+
+/* } */
+
+/* } */
+
+/* @keyframes l2-2 { */
+
+/* 0%, */
+
+/* 49.9% { */
+
+/* background-position: 0 0, 100% 0, 100% 100%, 0 100%; */
+
+/* } */
+
+/* 50%, */
+
+/* 100% { */
+
+/* background-position: 100% 0, 100% 100%, 0 100%, 0 0; */
+
+/* } */
+
+/* } */

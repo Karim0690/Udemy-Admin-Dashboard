@@ -3,6 +3,7 @@ export interface ISubcategoryResult {
   result: {
     _id: string;
     name: string;
+    nameAr: string;
     category: string;
   };
 }

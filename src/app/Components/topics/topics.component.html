@@ -1,21 +1,19 @@
-<div class="container m-2">
+<div class="container ">
   <div class="search-container">
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search By Slug Name ex. JavaScript"
-      name="search"
-      [(ngModel)]="textSearch"
-    />
+    <input type="text" class="search-input"
+      placeholder="Search By Topic Name ex. JavaScript" name="search"
+      [(ngModel)]="textSearch" />
 
     <button class="search-button" (click)="searchOfTopic()">Search</button>
   </div>
-  <div class="table-container">
+  <app-spinner *ngIf="isLoading"></app-spinner>
+  <div *ngIf="!isLoading" class="table-container">
     <table class="table">
       <thead>
         <tr>
           <th>#</th>
-          <th>Name</th>
+          <th> Name (English)</th>
+          <th> Name (Arabic)</th>
           <th>Slug</th>
           <th>Subcategory</th>
           <th class="text-center">Action</th>
@@ -23,14 +21,11 @@
       </thead>
       <tbody></tbody>
       <tbody>
-        <ng-container
-          *ngIf="
+        <ng-container *ngIf="
             (resultOfSearch ? resultOfSearch : topics).length > 0;
             else noResults
-          "
-        >
-          <tr
-            *ngFor="
+          ">
+          <tr *ngFor="
               let topic of (resultOfSearch ? resultOfSearch : topics)
                 | paginate
                   : {
@@ -39,10 +34,10 @@
                       totalItems: totalCount
                     };
               let i = index
-            "
-          >
+            ">
             <td>{{ i + 1 }}</td>
             <td>{{ topic.name }}</td>
+            <td>{{ topic.nameAr }}</td>
             <td>{{ topic.slug }}</td>
             <td>{{ topic.subcategory.name }}</td>
             <td class="actions">
@@ -66,7 +61,6 @@
   </div>
   <div class="paginate">
     <pagination-controls
-      (pageChange)="onPageChange($event)"
-    ></pagination-controls>
+      (pageChange)="onPageChange($event)"></pagination-controls>
   </div>
 </div>

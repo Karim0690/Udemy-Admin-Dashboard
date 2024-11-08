@@ -24,11 +24,12 @@ export class UpdateTopicComponent implements OnInit {
   subcategories: ISubcategories[] = [];
   topic: ITopicResult = {
     message: '',
-    result: { _id: '', name: '', slug: '', subcategory: '' },
+    result: { _id: '', name: '', slug: '', subcategory: '', nameAr: '' },
   };
   newTopic: ITopicUpdate = {
     _id: '',
     name: '',
+    nameAr: '',
     subcategory: '',
   };
   topicId: string = '';
@@ -70,19 +71,17 @@ export class UpdateTopicComponent implements OnInit {
   }
 
   UpdateTopic() {
-    this._topicsService
-      .updateTopic(this.newTopic)
-      .subscribe({
-        next: (res) => {
-          console.log(res);
+    this._topicsService.updateTopic(this.newTopic).subscribe({
+      next: (res) => {
+        console.log(res);
 
-          this._router.navigateByUrl('/Topics');
-        },
-        error: (err) => {
-          console.log(err);
+        this._router.navigateByUrl('/Topics');
+      },
+      error: (err) => {
+        console.log(err);
 
-          alert('Opps ! there is an error ,Please Try again');
-        },
-      });
+        alert('Opps ! there is an error ,Please Try again');
+      },
+    });
   }
 }

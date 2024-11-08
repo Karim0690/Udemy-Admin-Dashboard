@@ -1,34 +1,72 @@
-<form
-  (ngSubmit)="addNewSubcategory()"
-  method="post"
-  enctype="multipart/form-data"
-  class="form-container"
->
-  <div class="form-group">
-    <label class="form-label">Subcategory Name</label>
-    <input
-      type="text"
-      class="form-control"
-      name="Name"
-      [(ngModel)]="newSubcategory.name"
-    />
-  </div>
+<!-- <form -->
+<!-- (ngSubmit)="addNewSubcategory()" -->
+<!-- method="post" -->
+<!-- enctype="multipart/form-data" -->
+<!-- class="form-container"> -->
+<!-- <div class="form-group"> -->
+<!-- <label class="form-label">Subcategory Name</label> -->
+<!-- <input -->
+<!-- type="text" -->
+<!-- class="form-control" -->
+<!-- name="Name" -->
+<!-- [(ngModel)]="newSubcategory.name" /> -->
+<!-- </div> -->
+<!-- <div class="form-group"> -->
+<!-- <label class="form-label">Select Category</label> -->
+<!-- <select -->
+<!-- class="form-control" -->
+<!-- name="Category" -->
+<!-- [(ngModel)]="newSubcategory.category"> -->
+<!-- <option value disabled selected>Select a category</option> -->
+<!-- <option *ngFor="let category of categories" [value]="category._id"> -->
+<!-- {{ category.name }} -->
+<!-- </option> -->
+<!-- </select> -->
+<!-- </div> -->
+<!--  -->
+<!-- <button type="submit" class="btn btn-primary submit-btn"> -->
+<!-- Create Subcategory -->
+<!-- </button> -->
+<!-- </form> -->
 
-  <div class="form-group">
-    <label class="form-label">Select Category</label>
-    <select
-      class="form-control"
-      name="Category"
-      [(ngModel)]="newSubcategory.category"
-    >
-      <option value="" disabled selected>Select a category</option>
+<form (ngSubmit)="addNewSubcategory()" method="post" enctype="multipart/form-data" class="form-container">
+    <div class="form-group">
+        <label class="form-label">Subcategory Name </label>
+        <input type="text" class="form-control" name="Name" [(ngModel)]="newSubcategory.name" placeholder="Enter category name in English" />
+    </div>
+
+    <div class="form-group rtl">
+        <label class="form-label">اسم الفئة الفرعية </label>
+        <input type="text" class="form-control" name="NameAr" [(ngModel)]="newSubcategory.nameAr" placeholder="أدخل اسم الفئة الفرعية باللغة العربية" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Select Category</label>
+        <select class="form-control" name="Category" [(ngModel)]="newSubcategory.category">
+      <option value disabled selected>Select a category</option>
       <option *ngFor="let category of categories" [value]="category._id">
         {{ category.name }}
       </option>
     </select>
-  </div>
+    </div>
 
-  <button type="submit" class="btn btn-primary submit-btn">
+    <button type="submit" class="btn btn-primary submit-btn">
     Create Subcategory
   </button>
 </form>
+
+<!--  -->
+<!-- <form (ngSubmit)="addNewCategory()" method="post" enctype="multipart/form-data" class="form-container"> -->
+<!-- <div class="form-group"> -->
+<!-- <label class="form-label" for="name">Subcategory Name</label> -->
+<!-- <input type="text" class="form-control" id="name" name="Name" [(ngModel)]="newSubcategory.name" placeholder="Enter category name in English" required> -->
+<!-- </div> -->
+<!--  -->
+<!-- <div class="form-group"> -->
+<!-- <label class="form-label" for="nameAr">اسم الفئة </label> -->
+<!-- <input type="text" class="form-control" id="nameAr" name="NameAr" [(ngModel)]="newCategory.nameAr" placeholder="أدخل اسم الفئة باللغة العربية" required> -->
+<!-- </div> -->
+<!--  -->
+<!-- <button type="submit" class="btn btn-primary submit-btn">Create -->
+<!-- Category</button> -->
+<!-- </form> -->

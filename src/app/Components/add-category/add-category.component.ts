@@ -15,7 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   styleUrl: './add-category.component.css',
 })
 export class AddCategoryComponent implements OnInit {
-  newCategory: ICategoryCreate = { name: '' };
+  newCategory: ICategoryCreate = { name: '', nameAr: '' };
   pageItem: number = 10;
   pageNumber = 1;
   totalCount: number = 0;

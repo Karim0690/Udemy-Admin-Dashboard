@@ -33,6 +33,7 @@ export class TopicsService {
       `${this.apiUrl}topic/${topic._id}`,
       {
         name: topic.name,
+        nameAr: topic.nameAr,
         subcategory: topic.subcategory,
       }
     );

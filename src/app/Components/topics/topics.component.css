@@ -3,8 +3,10 @@
 }
 
 th {
-  background-color: #343a40; /* Dark color */
-  color: #fff; /* White text */
+  background-color: #343a40;
+  /* Dark color */
+  color: #fff;
+  /* White text */
 }
 
 .container {
@@ -15,8 +17,10 @@ th {
 
 .search-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
   margin-bottom: 20px;
 }
 
@@ -71,5 +75,9 @@ td {
 .actions {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
+}
+
+.paginate ::ng-deep .ngx-pagination .current {
+  background: #a435f0;
 }
