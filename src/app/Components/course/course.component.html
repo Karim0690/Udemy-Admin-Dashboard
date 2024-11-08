@@ -1,0 +1,55 @@
+<div class="container m-2">
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search By Course Name ex. Development" name="search" [(ngModel)]="textSearch" />
+    <button class="search-button" (click)="searchCourses()">Search</button>
+  </div>
+
+  <div *ngIf="loading">Loading...</div> <!-- Loading Indicator -->
+
+  <table class="table table-bordered my-5" *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Slug</th>
+        <th>Subtitle</th>
+        <th>Description</th>
+        <th>Instructor</th>
+        <th>Price</th>
+        <th class="text-center" colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of displayedCourses; let i = index">
+        <td>{{ (pageNumber - 1) * pageItem + i + 1 }}</td>
+        <td>{{ course.title }}</td>
+        <td>{{ course.slug }}</td>
+        <td>{{ course.subtitle }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.instructor }}</td>
+        <td>{{ course.price }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteCourse(course._id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="displayedCourses.length === 0">
+        <td colspan="8" class="text-center">No courses found.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="paginate text-center d-block" *ngIf="!loading">
+    <div class="mb-2">
+      <button class="btn" [disabled]="isPreviousDisabled()" (click)="onPageChange(pageNumber - 1)">
+        Previous
+      </button>
+      <button class="btn" [disabled]="isNextDisabled()" (click)="onPageChange(pageNumber + 1)">
+        Next
+      </button>
+    </div>
+
+    <p>Page {{ pageNumber }} of {{ totalPages }}</p>
+  </div>
+</div>
