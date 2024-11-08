@@ -6,11 +6,11 @@
     <form  [formGroup]="formGroup" (ngSubmit)="login()" method="post">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input type="text" id="username" formControlName="UserName"  />
+        <input type="text" id="username" formControlName="email"  />
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password"  formControlName="Password"/>
+        <input type="password" id="password"  formControlName="password"/>
       </div>
       <button type="submit">Login</button>
     </form>

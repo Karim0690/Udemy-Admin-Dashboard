@@ -26,7 +26,7 @@ import { UpdateTopicComponent } from './Components/update-topic/update-topic.com
 
 export const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
-  { path: 'Home', component: HomeComponent },
+  { path: 'Home', component: HomeComponent ,canActivate: [adminGuard] },
   {
     path: 'Categories',
     component: CategoryComponent,

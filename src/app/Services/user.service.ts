@@ -33,9 +33,9 @@ export class UserService {
   }
 
 
-  CreateUserAccount(newUser:FormData , RoleName:string):Observable<any>
+  CreateUserAccount(newUser:IUserCreate):Observable<any>
   {
-    return this.httpClient.post<any>(`${this.apiUrl}Account/CreateAccount?RoleName=${RoleName}`,newUser);
+    return this.httpClient.post<any>(`${this.apiUrl}user`,newUser);
   }
 
   deleteAccount(userId: string): Observable<IUserCreate> {

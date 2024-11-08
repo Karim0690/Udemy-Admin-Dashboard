@@ -1,12 +1,10 @@
 export interface IOrderItems {
-    entities: 
-        {
-          id: number,
-          orderId: number,
-          productName: string,
-          quantity: number,
-          unitPrice: number , 
-          totalPrice:number
-        }[],
-      count: number
+  course: {
+    _id: string;
+    title: string;
+    description: string;
+    price: number;
+  };
+  price: number;
+  _id: string;
 }

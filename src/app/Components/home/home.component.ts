@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
     });
   }
   allOrders() {
-    this._orderService.getOrders(10, 1).subscribe((response: any) => {
+    this._orderService.getOrders().subscribe((response: any) => {
       this.TotalOrders = response.count;
       this.updateChart();
     });

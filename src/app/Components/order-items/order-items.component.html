@@ -1,24 +1,18 @@
 <div class="container-flude">
-    <div class="card-body">
-        <table class="my-5">
-            <thead>
-                <tr>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Unit Price </th>
-                    <th scope="col">Total Price</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let items of orderItems.entities">
-                    <td>{{items.productName }} </td>
-                    <td>{{ items.quantity }}</td>
-                    <td>{{ items.unitPrice }}</td>
-                    <td>{{ items.totalPrice }}</td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="card-body">
+    <table class="my-5">
+      <thead>
+        <tr>
+          <th scope="col">Course Title</th>
+          <th scope="col">Course Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let items of orderItems">
+          <td>{{ items.course.title }}</td>
+          <td>{{ items.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

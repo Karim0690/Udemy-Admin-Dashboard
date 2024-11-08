@@ -1,11 +1,10 @@
 export interface IUserCreate {
-    Id?:string,
-    FirstName :string,
-    LastName :string,
-    UserName :string,
-    PhoneNumber :string,
-    Email :string,
-    Address :string,
-    Password :string,
-    Image :File|null,
+  _id?: string;
+  firstName: string;
+  lastName: string;
+  name: string;
+  email: string;
+  password: string;
+  photo: File | null;
+  role: string[];
 }

@@ -14,24 +14,22 @@ import { IReturnedToken } from '../../Models/ireturned-token';
 export class LoginComponent implements OnInit {
   
   formGroup :FormGroup =new FormGroup({}) ;
-  tokenn:IReturnedToken={token:'' , expiration:''};
+  tokenn:IReturnedToken={token:'' , message:''};
   valueLog:boolean=true;
 constructor(private _authonticationService:AuthorizationService , private router:Router){
   
 }
   ngOnInit() {
     this.formGroup = new FormGroup({
-      UserName:new FormControl('' , [Validators.required]) ,
-      Password:new FormControl('' , [Validators.required]) 
+      email:new FormControl('' , [Validators.required]) ,
+      password:new FormControl('' , [Validators.required]) 
     });
   }
   
 login()
-{
-  console.log(this.formGroup.value);
-  
+{  
   this._authonticationService.Login(this.formGroup.value).subscribe({
-    next:(response:IReturnedToken)=>{
+    next:(response:IReturnedToken)=>{      
         localStorage.setItem('token' , response.token)
        this.router.navigateByUrl('/Home');
        this._authonticationService.isLoggedStatus.next(true);

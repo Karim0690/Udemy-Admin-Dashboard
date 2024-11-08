@@ -20,7 +20,7 @@ export class AuthorizationService {
   }
 
   Login(newLogin: ILogin): Observable<IReturnedToken> {
-    return this.httpclient.post<IReturnedToken>(`${this.apiUrl}Account/Login`, newLogin);
+    return this.httpclient.post<IReturnedToken>(`${this.apiUrl}auth/signin`, newLogin);
 
   }
 

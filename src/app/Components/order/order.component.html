@@ -1,43 +1,67 @@
 <div class="container-flude">
-  
-
   <div class="search-container">
-    <input type="text" class="search-input" name="search" [(ngModel)]="serchText">
-    <button class="search-button" (click)="searchOrder()">Search</button>
+    <input
+      type="text"
+      class="search-input"
+      name="search"
+      placeholder="Search by order id"
+      [(ngModel)]="id"
+      (click)="searchofOrder()"
+    />
+    <button class="search-button">Search</button>
   </div>
   <table>
     <thead>
       <tr>
-        <th>User Name </th>
+        <th>#</th>
+        <th>ID</th>
+        <th>User Name</th>
         <th>Order Date</th>
-        <th>Shipping Address </th>
+        <th>Country</th>
         <th>Total Price</th>
         <th>Order Status</th>
-        <th>Phone</th>
-        <th class="text-center" colspan="3">Actions</th>
+        <th>Payment Method</th>
+        <th class="text-center">Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entity of (resultOfSearch ?resultOfSearch :orders.entities)| paginate: { itemsPerPage:pageItem ,currentPage: pageNumber, totalItems: totalCount} ">
-        <td>{{ entity.userName }}</td>
-        <td>{{ entity.orderDate }}</td>
-        <td>{{ entity.shippingAddress }}</td>
-        <td>{{ entity.totalPrice }}</td>
-        <td>{{ entity.orderStatus }}</td>
-        <td>{{ entity.phone }}</td>
-        <td><button class="btn btn-success" (click)="orderItems(entity.id)">Items</button></td>
-        <td><button class="btn btn-success" (click)="updateOrderStatus(entity.id)">Edit Status</button></td>
-
-        
+      <tr
+        *ngFor="
+          let order of (resultOfSearch ? resultOfSearch : orders)
+            | paginate
+              : {
+                  itemsPerPage: pageItem,
+                  currentPage: pageNumber,
+                  totalItems: totalCount
+                };
+          let i = index
+        "
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ order._id }}</td>
+        <td>{{ order.user.name }}</td>
+        <td>{{ order.createdAt | date : "fullDate" }}</td>
+        <td>{{ order.country }}</td>
+        <td>{{ order.summary.total }}</td>
+        <td>{{ order.orderStatus || "Done" }}</td>
+        <td>{{ order.paymentMethod }}</td>
+        <td class="d-flex justify-content-around">
+          <button class="btn btn-success" (click)="orderItems(order._id)">
+            Items
+          </button>
+          <button class="btn btn-danger" (click)="deleteOrder(order.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
   <div class="paginate">
-    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
-
+    <pagination-controls
+      (pageChange)="onPageChange($event)"
+    ></pagination-controls>
   </div>
 </div>
-
 
 <div *ngIf="errorMessages" class="error-message">
   {{ errorMessages }}

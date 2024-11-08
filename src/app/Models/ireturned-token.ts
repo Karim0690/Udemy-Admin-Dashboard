@@ -1,5 +1,5 @@
 export interface IReturnedToken {
     token:string,
-    expiration:string
+    message:string
 
 }

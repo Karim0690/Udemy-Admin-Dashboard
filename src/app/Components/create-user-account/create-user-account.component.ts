@@ -3,96 +3,99 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IUserCreate } from '../../Models/iuser-create';
 import { UserService } from '../../Services/user.service';
-import { HttpClientModule } from '@angular/common/http';
-import { RoleService } from '../../Services/role.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { IRole } from '../../Models/irole';
+import { cloudEnvironment } from '../../../environment';
 
 @Component({
   selector: 'app-create-user-account',
   standalone: true,
-  imports: [FormsModule , CommonModule, HttpClientModule],
+  imports: [FormsModule, CommonModule, HttpClientModule],
   templateUrl: './create-user-account.component.html',
-  styleUrl: './create-user-account.component.css'
+  styleUrls: ['./create-user-account.component.css'],
 })
-export class CreateUserAccountComponent  implements OnInit{
+export class CreateUserAccountComponent implements OnInit {
   newAccount: IUserCreate = {
-    Id: '',
-    FirstName: '',
-    LastName: '',
-    UserName: '',
-    PhoneNumber: '',
-    Email: '',
-    Address: '',
-    Password: '',
-    Image:null, 
+    firstName: '',
+    lastName: '',
+    name: '',
+    email: '',
+    password: '',
+    photo: null,
+    role: [],
+  };
+  availableRoles: string[] = ['admin', 'instructor', 'student'];
+  formSubmitted: boolean = false;
 
-};
-  roles:IRole[] =[];
-  RoleName:string=''
-  formData = new FormData();
-  constructor(private _userService:UserService , private _roleService:RoleService , private router:Router){
+  loading: boolean = false;
 
-}
+  constructor(
+    private _userService: UserService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
-ngOnInit(): void {
-this._roleService.GetAllRole().subscribe({
-next:(respone)=>
-{
-  this.roles=respone;
-} ,
-error:(error)=>
-{
-console.log(error);
+  ngOnInit(): void {}
 
-}
-});
+  onRoleChange(event: Event) {
+    const checkbox = event.target as HTMLInputElement;
+    if (checkbox.checked) {
+      this.newAccount.role.push(checkbox.value);
+    } else {
+      const index = this.newAccount.role.indexOf(checkbox.value);
+      if (index !== -1) {
+        this.newAccount.role.splice(index, 1);
+      }
+    }
+  }
 
-}
-addNewAccount(){
-  if (this.newAccount.FirstName) {
-    this.formData.append('FirstName', this.newAccount.FirstName);
-  }
-  if (this.newAccount.LastName) {
-    this.formData.append('LastName', this.newAccount.LastName);
-  }
-  if (this.newAccount.UserName) {
-    this.formData.append('UserName', this.newAccount.UserName);
-  }
-  if (this.newAccount.PhoneNumber) {
-    this.formData.append('PhoneNumber', this.newAccount.PhoneNumber);
-  }
-  if (this.newAccount.Email) {
-    this.formData.append('Email', this.newAccount.Email);
-  }
-  if (this.newAccount.Address) {
-    this.formData.append('Address', this.newAccount.Address);
-  }
-  if (this.newAccount.Password) {
-    this.formData.append('Password', this.newAccount.Password);
-  }
-  if (this.newAccount.Image) {
-    this.formData.append('Image', this.newAccount.Image , this.newAccount.Image.name);
-  }
- 
+  addNewAccount() {
+    this.formSubmitted = true; // Track if the form was submitted
+    if (this.newAccount.role.length === 0) {
+      alert('At least one role must be selected.'); // Validate role selection
+      return;
+    }
 
-
-  this._userService.CreateUserAccount(this.formData , this.RoleName).subscribe({
-  next:(response)=>{
-    this.newAccount=response
-
-    this.router.navigateByUrl('/Users')
-  } , 
-
-  error:(error)=>{
-  console.log ('Opps! please try again !')
+    console.log(this.newAccount);
+    // Submit the user account data
+    this._userService.CreateUserAccount(this.newAccount).subscribe({
+      next: (response) => {
+        console.log('User account created successfully:', response);
+        this.router.navigateByUrl('/Users');
+      },
+      error: (error) => {
+        console.error('Error creating account:', error);
+        alert('Oops! Please try again!');
+      },
+    });
   }
-  });
-}
-onImageSelected(event: Event) {
-  const file = (event.target as HTMLInputElement).files?.[0] ?? null;
-  if (file) {
-    this.newAccount.Image = file;
+
+  onImageSelected(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0] ?? null;
+    if (file) {
+      this.uploadImage(file);
+    }
   }
-}
+
+  uploadImage(file: File) {
+    const uploadData = new FormData(); // New instance for image upload
+    uploadData.append('file', file);
+    uploadData.append('upload_preset', 'mjk3zr3x'); // Set your upload preset
+
+    const url = `https://api.cloudinary.com/v1_1/${cloudEnvironment.cloudinary.cloudName}/upload`;
+    this.loading = true; // Start loading
+
+    this.http.post(url, uploadData).subscribe({
+      next: (response: any) => {
+        console.log('Upload successful:', response);
+        this.newAccount.photo = response.secure_url; // Save the uploaded image URL
+        this.loading = false; // Stop loading
+      },
+      error: (error) => {
+        console.error('Upload failed:', error);
+        alert('Image upload failed. Please try again.');
+        this.loading = false; // Stop loading
+      },
+    });
+  }
 }

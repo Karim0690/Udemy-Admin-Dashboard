@@ -2,7 +2,7 @@
 
 .container-flude {
   padding: 10px;
-  overflow-x:auto ;
+  overflow-x: auto;
 }
 
 table {
@@ -10,10 +10,10 @@ table {
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 }
 
-thead  {
+thead {
   background-color: #2a2e32;
   color: #fff;
   font-weight: bold;
@@ -21,7 +21,8 @@ thead  {
   padding: 15px;
 }
 
-th, td {
+th,
+td {
   padding: 8px;
   border: 1px solid #ddd;
 }
@@ -30,14 +31,13 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-
 .table td {
   text-align: center;
   padding: 10px;
 }
 
-
-.table th, .table td {
+.table th,
+.table td {
   padding: 8px;
   border: 1px solid #ddd;
 }
@@ -56,12 +56,12 @@ tr:nth-child(even) {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A2E32;
+  background: #2a2e32;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #EB5805;
+  background: #eb5805;
 }
 
 .search-container {
@@ -79,18 +79,16 @@ tr:nth-child(even) {
   font-size: 16px;
 }
 
-
 .search-button {
   padding: 10px 20px;
-  background-color: #EB5805;
+  background-color: #a435f0;
   border: none;
-  border-radius: 5px;
   color: #fff;
   cursor: pointer;
   font-size: 16px;
   margin-left: 1%;
 }
-.paginate{
+.paginate {
   display: flex;
   align-items: center;
   justify-content: center;

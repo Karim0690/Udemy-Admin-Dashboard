@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,17 +6,14 @@ import { IOrderItems } from '../Models/iorder-items';
 import { IOrderResult } from '../Models/iorder-result';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
-
   apiUrl = environment.apiUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-
-  getOrders(pageItem: number, pageNumber: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}Order?pageItem=${pageItem}&pageNumber=${pageNumber}`);
-
+  getOrders(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}orders`);
   }
 
   updateOrderStatus(orderId: number, newOrderStatus: number): Observable<any> {
@@ -27,18 +23,22 @@ export class OrderService {
   }
 
   getOrdersByUserId(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}Order/GetorderByUserId/${userId}`);
+    return this.http.get<any[]>(
+      `${this.apiUrl}Order/GetorderByUserId/${userId}`
+    );
   }
 
-  searchOrder(searchTerm: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}Order/searchOrder?term=${searchTerm}`);
+  searchOrder(id: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}orders?keyword=${id}`);
   }
-  getOrderItems(id: number): Observable<IOrderItems> {
-    return this.http.get<IOrderItems>(`${this.apiUrl}Order/GetOrderItems?orderId=${id}`)
+  getOrderbyId(id: string): Observable<IOrderItems> {
+    return this.http.get<IOrderItems>(`${this.apiUrl}orders/${id}`);
   }
-getOneOrder(id:number):Observable<IOrderResult>{
-  return this.http.get<IOrderResult>(`${this.apiUrl}Order/${id}`)
+  // getOneOrder(id:number):Observable<IOrderResult>{
+  //   return this.http.get<IOrderResult>(`${this.apiUrl}Order/${id}`)
+  // }
 
-}
-
+  deleteOrder(id: string) {
+    return this.http.delete(`${this.apiUrl}orders/${id}`);
+  }
 }
