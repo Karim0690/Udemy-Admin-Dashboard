@@ -9,7 +9,7 @@ import { ICourse } from '../Models/icourse';
   providedIn: 'root',
 })
 export class CourseService {
-  private baseUrl = 'https://udemy-eosin-eight.vercel.app';
+  private baseUrl = 'https://udemy-eosin-eight.vercel.app/course';
 
   constructor(private http: HttpClient) {}
 
