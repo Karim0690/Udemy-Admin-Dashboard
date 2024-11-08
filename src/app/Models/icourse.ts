@@ -5,7 +5,7 @@ export interface ICourse {
   slug: string;
   subtitle: string;
   description: string;
-  instructor: string;
+  instructor: { name: string };
   price: string;
   level: string;
   courseImage: string;

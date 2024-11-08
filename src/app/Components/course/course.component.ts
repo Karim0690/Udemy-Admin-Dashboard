@@ -22,7 +22,7 @@ export class CourseComponent implements OnInit {
   instructors: { [key: string]: IUser } = {};
   textSearch: string = '';
   loading: boolean = false;
-  pageItem: number = 3;  
+  pageItem: number = 6;  
   pageNumber: number = 1; 
   totalPages: number = 0; 
 
@@ -48,19 +48,19 @@ export class CourseComponent implements OnInit {
       );
   }
   
-  fetchInstructors(): void {
-    const instructorIds = Array.from(new Set(this.courses.map(course => course.instructor)));
-    instructorIds.forEach(id => {
-      this.userService.getUserById(id).subscribe(
-        (instructor) => {
-          this.instructors[id] = instructor; 
-        },
-        (error) => {
-          console.error(`Error fetching instructor with ID ${id}:`, error);
-        }
-      );
-    });
-  }
+  // fetchInstructors(): void {
+  //   const instructorIds = Array.from(new Set(this.courses.map(course => course.instructor)));
+  //   instructorIds.forEach(id => {
+  //     this.userService.getUserById(id).subscribe(
+  //       (instructor) => {
+  //         this.instructors[id] = instructor; 
+  //       },
+  //       (error) => {
+  //         console.error(`Error fetching instructor with ID ${id}:`, error);
+  //       }
+  //     );
+  //   });
+  // }
 
   updatePagination(): void {
     this.totalPages = Math.ceil(this.courses.length / this.pageItem);
